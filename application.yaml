@@ -1,7 +1,7 @@
-apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproject.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook
+  name: will-playground-argo-application
   namespace: argocd
 spec:
   project: default
@@ -12,10 +12,9 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
-
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
     - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
