@@ -1,20 +1,21 @@
-apiVersion: argoproject.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: will-playground-argo-application
+  name: will-playground-argocd
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/m3L4n/mpochard-config.git
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
     path: dev
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
+
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamepace=true
     automated:
       selfHeal: true
       prune: true
