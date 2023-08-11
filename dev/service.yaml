@@ -4,6 +4,7 @@ metadata:
   app: wil-playground
   name: wil-service
 spec:
+  type: ClusterIP
   selector:
     app: wil-playground
   ports:
